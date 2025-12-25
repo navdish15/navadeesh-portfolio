@@ -34,7 +34,6 @@ html {
 
 section {
   scroll-margin-top: 80px;
-  margin: 0;
 }
 
 /* ================= LINKS ================= */
@@ -81,4 +80,28 @@ footer a {
 footer a:hover {
   color: #ffffff;
   transform: translateY(-4px);
+}
+
+/* ================= MOBILE NAVBAR FIX ================= */
+@media (max-width: 768px) {
+  /* Hide desktop menu */
+  nav ul {
+    display: none !important;
+  }
+
+  /* Show hamburger icon */
+  nav div {
+    display: block !important;
+  }
+
+  /* Mobile menu spacing */
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary);
+  }
 }
