@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -19,21 +18,23 @@ function Navbar() {
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      {/* Mobile Icon */}
-      <div style={styles.mobileIcon} onClick={() => setOpen(!open)}>
-        {open ? <FaTimes /> : <FaBars />}
+      {/* Mobile Menu Icon */}
+      <div style={styles.hamburger} onClick={() => setOpen(true)}>
+        ☰
       </div>
 
       {/* Mobile Menu */}
       {open && (
-        <ul style={styles.mobileMenu}>
-          <li onClick={() => setOpen(false)}><a href="#home">Home</a></li>
-          <li onClick={() => setOpen(false)}><a href="#about">About</a></li>
-          <li onClick={() => setOpen(false)}><a href="#skills">Skills</a></li>
-          <li onClick={() => setOpen(false)}><a href="#projects">Projects</a></li>
-          <li onClick={() => setOpen(false)}><a href="#education">Education</a></li>
-          <li onClick={() => setOpen(false)}><a href="#contact">Contact</a></li>
-        </ul>
+        <div style={styles.mobileMenu}>
+          <span style={styles.close} onClick={() => setOpen(false)}>✕</span>
+
+          <a href="#home" onClick={() => setOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setOpen(false)}>About</a>
+          <a href="#skills" onClick={() => setOpen(false)}>Skills</a>
+          <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
+          <a href="#education" onClick={() => setOpen(false)}>Education</a>
+          <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+        </div>
       )}
     </nav>
   );
@@ -45,7 +46,7 @@ const styles = {
     top: 0,
     zIndex: 1000,
     backgroundColor: "var(--white)",
-    padding: "15px 10%",
+    padding: "15px 20px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -62,23 +63,47 @@ const styles = {
     display: "flex",
     gap: "20px",
   },
-  mobileIcon: {
+  hamburger: {
     display: "none",
-    fontSize: "22px",
-    color: "var(--primary)",
+    fontSize: "26px",
     cursor: "pointer",
+    color: "var(--primary)",
   },
   mobileMenu: {
-    position: "absolute",
-    top: "65px",
+    position: "fixed",
+    top: 0,
     left: 0,
     width: "100%",
-    backgroundColor: "var(--white)",
-    listStyle: "none",
-    padding: "20px 0",
-    textAlign: "center",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+    height: "100vh",
+    background: "linear-gradient(135deg, var(--primary), var(--primary-dark))",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "24px",
+    color: "#fff",
+  },
+  close: {
+    position: "absolute",
+    top: "20px",
+    right: "20px",
+    fontSize: "26px",
+    cursor: "pointer",
   },
 };
+
+/* Responsive CSS */
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+@media (max-width: 768px) {
+  nav ul {
+    display: none !important;
+  }
+  nav div {
+    display: block !important;
+  }
+}
+`;
+document.head.appendChild(styleSheet);
 
 export default Navbar;
