@@ -22,11 +22,11 @@ function Footer() {
         </a>
 
         <a
-          href="https://github.com/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="GitHub"
-        >
+  href="https://github.com/navdish15"
+  target="_blank"
+  rel="noreferrer"
+  aria-label="GitHub"
+>
           <FaGithub />
         </a>
       </div>
