@@ -7,6 +7,7 @@ function Navbar() {
 
   return (
     <>
+      {/* NAVBAR */}
       <nav style={styles.nav}>
         <div style={styles.logo}>Navadeesh</div>
 
@@ -20,13 +21,13 @@ function Navbar() {
           <li><a href="#contact">Contact</a></li>
         </ul>
 
-        {/* Mobile Icon */}
+        {/* Mobile Hamburger */}
         <div style={styles.hamburger} onClick={() => setOpen(true)}>
           ☰
         </div>
       </nav>
 
-      {/* Mobile Overlay */}
+      {/* MOBILE OVERLAY */}
       {open && (
         <div style={styles.overlay}>
           <span style={styles.close} onClick={closeMenu}>✕</span>
@@ -82,11 +83,14 @@ const styles = {
     color: "var(--primary)",
   },
 
-  /* ===== Mobile ===== */
+  /* ===== MOBILE OVERLAY ===== */
   overlay: {
     position: "fixed",
     inset: 0,
-    background: "linear-gradient(135deg, var(--primary), var(--primary-dark))",
+    background:
+      "linear-gradient(135deg, rgba(108,99,255,0.92), rgba(79,70,229,0.92))",
+    backdropFilter: "blur(6px)",
+    WebkitBackdropFilter: "blur(6px)",
     zIndex: 2000,
     display: "flex",
     justifyContent: "center",
@@ -99,7 +103,7 @@ const styles = {
     top: "22px",
     right: "26px",
     fontSize: "30px",
-    color: "#fff",
+    color: "#ffffff",
     cursor: "pointer",
   },
 
@@ -115,7 +119,6 @@ const styles = {
     color: "#ffffff",
     padding: "14px 0",
     textDecoration: "none",
-    opacity: 1,
   },
 };
 
